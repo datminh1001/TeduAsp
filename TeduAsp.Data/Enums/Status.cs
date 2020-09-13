@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TeduAsp.Data.Entities
+namespace TeduAsp.Data.Enums
 {
-    class Class1
+    public enum Status
     {
+        InActive,
+        Active
     }
 }
