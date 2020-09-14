@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TeduAsp.Data\TeduAsp.Data.csproj" />
+    <ProjectReference Include="..\TeduAsp.Utilites\TeduAsp.Utilites.csproj" />
+  </ItemGroup>
+
 </Project>

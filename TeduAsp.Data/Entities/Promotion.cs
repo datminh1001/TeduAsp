@@ -5,7 +5,7 @@ using TeduAsp.Data.Enums;
 
 namespace TeduAsp.Data.Entities
 {
-    class Promotion
+    public class Promotion
     {
         public int Id { set; get; }
         public DateTime FromDate { set; get; }

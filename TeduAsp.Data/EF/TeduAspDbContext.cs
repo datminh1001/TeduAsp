@@ -10,7 +10,7 @@ using TeduAsp.Data.Extensions;
 
 namespace TeduAsp.Data.EF
 {
-    class TeduAspDbContext : IdentityDbContext<AppUser, AppRole, Guid>
+    public class TeduAspDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
         public TeduAspDbContext(DbContextOptions options) : base(options)
         {
