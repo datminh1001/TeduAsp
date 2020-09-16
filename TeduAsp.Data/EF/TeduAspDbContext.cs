@@ -32,6 +32,7 @@ namespace TeduAsp.Data.EF
             modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
 
             //authentication
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
@@ -61,5 +62,6 @@ namespace TeduAsp.Data.EF
         public DbSet<ProductTranslation> ProductTranslations { set; get; }
         public DbSet<Promotion> Promotions { set; get; }
         public DbSet<Transaction> Transactions { set; get; }
+        public DbSet<ProductImage> ProductImages { set; get; }
     }
 }

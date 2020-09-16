@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TeduAsp.Application.Catalog.Products.Dtos;
-using TeduAsp.Application.Catalog.Products.Dtos.Public;
-using TeduAsp.Application.Dtos;
+using TeduAsp.ViewModels.Catalog.Products;
+using TeduAsp.ViewModels.Catalog.Products.Public;
+using TeduAsp.ViewModels.Common;
 using TeduAsp.Data.EF;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;

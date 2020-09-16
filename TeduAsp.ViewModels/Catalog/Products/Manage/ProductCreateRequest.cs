@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TeduAsp.Application.Catalog.Products.Dtos
+namespace TeduAsp.ViewModels.Catalog.Products.Manage
 {
-    public class ProductViewModel
+    public class ProductCreateRequest
     {
-        public int Id { set; get; }
         public decimal Price { set; get; }
         public decimal OriginalPrice { set; get; }
         public int Stock { set; get; }
@@ -20,5 +20,7 @@ namespace TeduAsp.Application.Catalog.Products.Dtos
         public string SeoTitle { set; get; }
         public string SeoAlias { set; get; }
         public string LanguageId { set; get; }
+
+        public IFormFile ThumbnailImage { set; get; }
     }
 }

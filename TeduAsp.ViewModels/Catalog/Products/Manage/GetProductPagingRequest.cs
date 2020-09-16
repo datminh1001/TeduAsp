@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TeduAsp.Application.Dtos;
+using TeduAsp.ViewModels.Common;
 
-namespace TeduAsp.Application.Catalog.Products.Dtos.Manage
+namespace TeduAsp.ViewModels.Catalog.Products.Manage
 {
     public class GetProductPagingRequest : PagingRequestBase
     {

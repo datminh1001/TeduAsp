@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TeduAsp.Application.Catalog.Products.Dtos;
-using TeduAsp.Application.Catalog.Products.Dtos.Public;
-using TeduAsp.Application.Dtos;
+using TeduAsp.ViewModels.Catalog.Products;
+using TeduAsp.ViewModels.Catalog.Products.Public;
+using TeduAsp.ViewModels.Common;
 
 namespace TeduAsp.Application.Catalog.Products
 {

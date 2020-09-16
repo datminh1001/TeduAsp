@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TeduAsp.Application.Dtos
+namespace TeduAsp.ViewModels.Common
 {
     public class PageResult<T>
     {
-        public List<T> Items { set; get; } 
+        public List<T> Items { set; get; }
         public int TotalRecord { set; get; }
     }
 }

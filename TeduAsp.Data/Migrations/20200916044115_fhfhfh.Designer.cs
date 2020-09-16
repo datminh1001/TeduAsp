@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeduAsp.Data.EF;
 
 namespace TeduAsp.Data.Migrations
 {
     [DbContext(typeof(TeduAspDbContext))]
-    partial class TeduAspDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200916044115_fhfhfh")]
+    partial class fhfhfh
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TeduAsp.Application.Catalog.Products.Dtos;
-using TeduAsp.Application.Catalog.Products.Dtos.Manage;
-using TeduAsp.Application.Dtos;
+using TeduAsp.ViewModels.Catalog.Products;
+using TeduAsp.ViewModels.Catalog.Products.Manage;
+using TeduAsp.ViewModels.Common;
 using TeduAsp.Data.EF;
 using TeduAsp.Data.Entities;
 using TeduAsp.Utilites.Exceptions;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
+using System.IO;
+using TeduAsp.Application.Common;
 
 namespace TeduAsp.Application.Catalog.Products
 {
     public class ManageProductService : IManageProductService
     {
         private readonly TeduAspDbContext _context;
+        private readonly IStorageService _storageService;
 
-        public ManageProductService(TeduAspDbContext context)
+        public ManageProductService(TeduAspDbContext context, IStorageService storageService)
         {
             _context = context;
+            _storageService = storageService;
         }
 
         public async Task AddViewCount(int productId)
@@ -52,6 +58,22 @@ namespace TeduAsp.Application.Catalog.Products
                     }
                 }
             };
+            //save image
+            if(request.ThumbnailImage != null)
+            {
+                product.ProductImages = new List<ProductImage>()
+                {
+                    new ProductImage()
+                    {
+                        Caption = "Thumbnail image",
+                        DateCreated = DateTime.Now,
+                        FileSize = request.ThumbnailImage.Length,
+                        ImagePath = await this.SaveFile(request.ThumbnailImage),
+                        IsDefault = true,
+                        SortOrder = 1
+                    }
+                };
+            }
             _context.Products.Add(product);
 
             return await _context.SaveChangesAsync();
@@ -62,7 +84,14 @@ namespace TeduAsp.Application.Catalog.Products
             //tim san pham theo async de tan dung thoi gian
             Product product = await _context.Products.FindAsync(productId);
             if(product == null) throw new TeduAspException($"can't find this product {product}");
+
+            var images = _context.ProductImages.Where(i => i.ProductId == productId);
+            foreach(var image in images)
+            {
+                await _storageService.DeleteFileAsync(image.ImagePath);
+            }
             _context.Products.Remove(product);
+
             return await _context.SaveChangesAsync();
         }
 
@@ -131,6 +160,17 @@ namespace TeduAsp.Application.Catalog.Products
             productTranslation.Description = request.Description;
             productTranslation.Details = request.Details;
 
+            if (request.ThumbnailImage != null)
+            {
+                var thumbnailImage = await _context.ProductImages.FirstOrDefaultAsync(i => i.IsDefault == true && i.ProductId == request.Id);
+                if(thumbnailImage != null)
+                {
+                    thumbnailImage.FileSize = request.ThumbnailImage.Length;
+                    thumbnailImage.ImagePath = await this.SaveFile(request.ThumbnailImage);
+                    _context.ProductImages.Update(thumbnailImage);
+                }
+            }
+
             return await _context.SaveChangesAsync();
         }
 
@@ -150,6 +190,38 @@ namespace TeduAsp.Application.Catalog.Products
             product.Price += addedQuantity;
 
             return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<string> SaveFile(IFormFile file)
+        {
+            // 1. tìm tên mặc định
+            // 2. tìm tên file
+            // 3. save file async
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+
+            return fileName;
+        }
+
+        public Task<int> AddImages(int productId, List<IFormFile> files)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> RemoveImages(int imageId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> UpdateImage(int imageId, string caption, bool IsDefault)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<ProductImageViewModel>> GetListImage(int productId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
