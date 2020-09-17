@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using TeduAsp.ViewModels.Catalog.Products;
-using TeduAsp.ViewModels.Catalog.Products.Manage;
+using TeduAsp.ViewModels.Catalog.Products;
 using TeduAsp.ViewModels.Common;
 
 namespace TeduAsp.Application.Catalog.Products
@@ -23,7 +23,7 @@ namespace TeduAsp.Application.Catalog.Products
 
         Task AddViewCount(int productId);
 
-        Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
+        Task<PageResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
 
         Task<int> AddImages(int productId, List<IFormFile> files);
 

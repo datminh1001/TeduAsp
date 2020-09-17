@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using TeduAsp.ViewModels.Catalog.Products;
-using TeduAsp.ViewModels.Catalog.Products.Manage;
+using TeduAsp.ViewModels.Catalog.Products;
 using TeduAsp.ViewModels.Common;
 using TeduAsp.Data.EF;
 using TeduAsp.Data.Entities;
@@ -95,7 +95,7 @@ namespace TeduAsp.Application.Catalog.Products
             return await _context.SaveChangesAsync();
         }
 
-        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1. select join
             var query = from p in _context.Products

@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduAsp.Application", "Tedu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduAsp.Utilites", "TeduAsp.Utilites\TeduAsp.Utilites.csproj", "{C2154F8C-EE4F-4AE5-AEAC-2E757C070318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduAsp.ViewModels", "TeduAsp.ViewModels\TeduAsp.ViewModels.csproj", "{5EE60505-7535-4A3B-815C-E91CE36683E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduAsp.ViewModels", "TeduAsp.ViewModels\TeduAsp.ViewModels.csproj", "{5EE60505-7535-4A3B-815C-E91CE36683E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduAsp.BackendApi", "TeduAsp.BackendApi\TeduAsp.BackendApi.csproj", "{20073932-5175-4625-B4D2-9C32FCC3FE8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{5EE60505-7535-4A3B-815C-E91CE36683E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE60505-7535-4A3B-815C-E91CE36683E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE60505-7535-4A3B-815C-E91CE36683E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20073932-5175-4625-B4D2-9C32FCC3FE8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20073932-5175-4625-B4D2-9C32FCC3FE8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20073932-5175-4625-B4D2-9C32FCC3FE8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20073932-5175-4625-B4D2-9C32FCC3FE8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
