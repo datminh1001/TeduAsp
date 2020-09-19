@@ -32,5 +32,7 @@ namespace TeduAsp.Application.Catalog.Products
         Task<int> UpdateImage(int imageId, string caption, bool IsDefault);
 
         Task<List<ProductImageViewModel>> GetListImage(int productId);
+
+        Task<ProductViewModel> GetById(int productId, string languageId);
     }
 }

@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using TeduAsp.Application.Catalog.Products;
+using TeduAsp.Application.Common;
 using TeduAsp.Data.EF;
 using TeduAsp.Utilites.Constants;
 
@@ -39,6 +40,8 @@ namespace TeduAsp.BackendApi
 
             //DI
             services.AddTransient<IPublicProductService, PublicProductService>();
+            services.AddTransient<IManageProductService, ManageProductService>();
+            services.AddTransient<IStorageService, FileStorageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,7 +75,7 @@ namespace TeduAsp.BackendApi
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=home}/{action=index}/{id?}");
             });
         }
     }

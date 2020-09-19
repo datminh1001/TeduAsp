@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Catalog\Products\ManageProductService.cs~RF22d68396.TMP" />
+  </ItemGroup>
+
    <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
    </ItemGroup>

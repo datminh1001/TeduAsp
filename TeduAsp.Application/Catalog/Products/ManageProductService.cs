@@ -76,7 +76,9 @@ namespace TeduAsp.Application.Catalog.Products
             }
             _context.Products.Add(product);
 
-            return await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+
+            return product.Id;
         }
 
         public async Task<int> Delete(int productId)
@@ -192,7 +194,7 @@ namespace TeduAsp.Application.Catalog.Products
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<string> SaveFile(IFormFile file)
+        private async Task<string> SaveFile(IFormFile file)
         {
             // 1. tìm tên mặc định
             // 2. tìm tên file
@@ -222,6 +224,32 @@ namespace TeduAsp.Application.Catalog.Products
         public Task<List<ProductImageViewModel>> GetListImage(int productId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<ProductViewModel> GetById(int productId, string languageId)
+        {
+            // find a product
+            var product = await _context.Products.FindAsync(productId);
+            var productTranslation = await _context.ProductTranslations
+                .FirstOrDefaultAsync(x => x.ProductId == productId && x.LanguageId == languageId);
+            var productViewModel = new ProductViewModel()
+            {
+                Id = product.Id,
+                DateCreated = product.DateCreated,
+                Description = productTranslation?.Description,
+                LanguageId = productTranslation.LanguageId,
+                Details = productTranslation?.Details,
+                Name = productTranslation?.Name,
+                OriginalPrice = product.OriginalPrice,
+                Price = product.Price,
+                SeoAlias = productTranslation?.SeoAlias,
+                SeoDescription = productTranslation?.SeoDescription,
+                SeoTitle = productTranslation?.SeoTitle,
+                Stock = product.Stock,
+                ViewCount = product.ViewCount
+            };
+
+            return productViewModel;
         }
     }
 }

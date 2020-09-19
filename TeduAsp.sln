@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{384BBD8E-1B2E-4A3C-80C7-7957ACD56C23}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Solution Items", "0. Solution Items", "{384BBD8E-1B2E-4A3C-80C7-7957ACD56C23}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
@@ -18,7 +18,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduAsp.Utilites", "TeduAsp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduAsp.ViewModels", "TeduAsp.ViewModels\TeduAsp.ViewModels.csproj", "{5EE60505-7535-4A3B-815C-E91CE36683E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeduAsp.BackendApi", "TeduAsp.BackendApi\TeduAsp.BackendApi.csproj", "{20073932-5175-4625-B4D2-9C32FCC3FE8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeduAsp.BackendApi", "TeduAsp.BackendApi\TeduAsp.BackendApi.csproj", "{20073932-5175-4625-B4D2-9C32FCC3FE8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Infrastructure", "1. Infrastructure", "{E7A347BA-1AF1-48CD-B938-F8A5A4F76F28}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Domain", "2. Domain", "{64A0A88D-B12E-4F79-9264-28CEDB04C1C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Hosts", "3. Hosts", "{BA28CD68-9A50-4186-892F-48129B8EFAF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DC2C283-E4B0-40AD-9A91-F862B1A82FD0} = {BA28CD68-9A50-4186-892F-48129B8EFAF9}
+		{E177BC9F-EA17-4F20-AAFD-80865080AFB5} = {64A0A88D-B12E-4F79-9264-28CEDB04C1C1}
+		{CC6ACC8D-62A5-4B7F-8105-6E55E9345194} = {64A0A88D-B12E-4F79-9264-28CEDB04C1C1}
+		{C2154F8C-EE4F-4AE5-AEAC-2E757C070318} = {E7A347BA-1AF1-48CD-B938-F8A5A4F76F28}
+		{5EE60505-7535-4A3B-815C-E91CE36683E3} = {E7A347BA-1AF1-48CD-B938-F8A5A4F76F28}
+		{20073932-5175-4625-B4D2-9C32FCC3FE8F} = {BA28CD68-9A50-4186-892F-48129B8EFAF9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D2DE65D-C8F9-4350-B516-6F2AD03FBA62}
